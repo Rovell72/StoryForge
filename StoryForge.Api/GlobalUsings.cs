@@ -1,0 +1,15 @@
+global using FluentValidation;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Options;
+global using StoryForge.Api.Common;
+global using StoryForge.Api.Contracts;
+global using StoryForge.Api.Domain;
+global using StoryForge.Api.Infrastructure;
+global using StoryForge.Api.Services;
+global using StoryForge.Api.Features.Users;
+global using StoryForge.Api.Features.Stories;
+global using StoryForge.Api.Features.Branches;
+global using StoryForge.Api.Features.Contributions;
+global using StoryForge.Api.Features.Rounds;
+global using StoryForge.Api.Features.MergeRequests;

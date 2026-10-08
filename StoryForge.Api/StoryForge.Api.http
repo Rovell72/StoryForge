@@ -1,0 +1,63 @@
+@host = http://localhost:5080
+
+POST {{host}}/api/users
+Content-Type: application/json
+
+{ "username": "alice" }
+
+###
+
+POST {{host}}/api/users
+Content-Type: application/json
+
+{ "username": "bob" }
+
+###
+
+POST {{host}}/api/stories
+Content-Type: application/json
+
+{ "title": "Тайна старого маяка", "description": "Совместная история о маяке на краю света" }
+
+###
+
+POST {{host}}/api/branches/{{branchId}}/contributions
+Content-Type: application/json
+
+{ "authorId": "{{aliceId}}", "text": "Туман окутал берег, и маяк погас." }
+
+###
+
+POST {{host}}/api/contributions/{{contributionId}}/votes
+Content-Type: application/json
+
+{ "voterId": "{{bobId}}", "value": 1 }
+
+###
+
+POST {{host}}/api/branches/{{branchId}}/rounds
+Content-Type: application/json
+
+{ "durationMinutes": 10 }
+
+###
+
+POST {{host}}/api/branches/{{branchId}}/fork
+Content-Type: application/json
+
+{ "userId": "{{aliceId}}", "title": "Альтернативная концовка" }
+
+###
+
+POST {{host}}/api/merge-requests
+Content-Type: application/json
+
+{ "sourceBranchId": "{{forkId}}", "targetBranchId": "{{branchId}}", "proposedById": "{{aliceId}}" }
+
+###
+
+GET {{host}}/api/branches/{{branchId}}/text
+
+###
+
+GET {{host}}/api/users/top?count=10
